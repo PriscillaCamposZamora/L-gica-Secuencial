@@ -12,7 +12,7 @@ module tb_register_file();
 
 logic clk, rst, WE;
 logic [7:0] data_in, data_out1, data_out2;
-logic [7:0] add_data_in, add_data_out1, add_data_out2;
+logic [2:0] add_data_in, add_data_out1, add_data_out2;
 
 
 register_file #(3, 8) dut1(
@@ -30,7 +30,7 @@ register_file #(3, 8) dut1(
 // dut para 8 registros de 4 bits
 
 logic [3:0] DUT2_data_in, DUT2_data_out1, DUT2_data_out2;
-logic [7:0] DUT2_add_data_in, DUT2_add_data_out1, DUT2_add_data_out2;
+logic [2:0] DUT2_add_data_in, DUT2_add_data_out1, DUT2_add_data_out2;
 
 register_file #(3, 4) dut2(
     .clk(clk), 
@@ -73,7 +73,7 @@ initial begin
 end
 
 // función para escribir las palabras aleatorias en los registros de 8 bits
-task automatic write_test8(input bit [7:0] data, input bit [7:0] i);
+task automatic write_test8(input bit [7:0] data, input bit [2:0] i);
     $display($sformatf("Dato: %0d cargado en registro: %0d", data, i));
     WE = 1;
     data_in = data;
@@ -84,7 +84,7 @@ task automatic write_test8(input bit [7:0] data, input bit [7:0] i);
 endtask
 
 // función para escribir las palabras aleatorias en los registros de 4 bits
-task automatic write_test4(input bit [3:0] data, input bit [7:0] i);
+task automatic write_test4(input bit [3:0] data, input bit [2:0] i);
     $display($sformatf("Dato: %0d cargado en registro: %0d", data, i));
     WE = 1;
     DUT2_data_in = data;
