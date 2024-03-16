@@ -25,6 +25,17 @@ module lfsr_16b(
             count <= count + 1;
         end
     end
+
+    // crear nuevo reloj a partir de clk con frecuencia de 50 MHz para testbench (clk tiene frecuencia de 100 MHz)
+    /*always@(posedge clk) begin
+        if (count == 2-1) begin
+            count <= 0;
+            new_clk <= !new_clk;
+        end
+        else begin
+            count <= count + 1;
+        end
+    end*/
     
      // obtener bit de realimentación o tap
     assign lf = ( (lfsr_out[15] ^ lfsr_out[14]) 
