@@ -8,20 +8,20 @@
 module top_module_hex_to_seven_seg(
     input logic clk,
     input logic rst,
-    output logic [3:0] anode,
+    input logic enable,
+    output logic [7:0] anode,
     output logic [6:0] segments,
-    output logic dp
+    output logic dp, write_enable
     );
     
-    logic write_enable;
     logic [15:0] binary_16b_num;
     logic [15:0] hex_num_4digit;
     
-    random_tester random_tester1(.clk(clk), .rst(rst), .random_num(binary_16b_num), .WE(write_enable));
+    lfsr_16b lfsr_inst(.clk(clk), .rst(rst), .enable(enable), .WE(write_enable), .lfsr_out(binary_16b_num));
     
-    register_16b register_16b1(.clk(clk), .WE(write_enable), .D(binary_16b_num), .Q(hex_num_4digit));
+    register_16b register_16b_inst(.clk(clk), .WE(write_enable), .D(binary_16b_num), .Q(hex_num_4digit));
     
-    seven_segment_display_controller(.clk(clk) , .hex_num_4digit(hex_num_4digit), .anode(anode), .segments(segments));
+    seven_segment_display_controller controller_inst(.clk(clk) , .displayed_num(hex_num_4digit), .anode(anode), .segments(segments));
     
     assign dp = 1;
 
