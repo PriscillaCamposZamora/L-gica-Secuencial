@@ -13,7 +13,7 @@ module lfsr_16b(
     );
     
     logic lf, new_clk = 0;
-    logic [9:0] count = 9'd0;
+    logic [28:0] count = 9'd0000000000;
     
     // crear nuevo reloj a partir de clk con frecuencia de 0.5 Hz (clk tiene frecuencia de 100 MHz)
     always@(posedge clk) begin
@@ -25,17 +25,6 @@ module lfsr_16b(
             count <= count + 1;
         end
     end
-    
-    // crear nuevo reloj a partir de clk con frecuencia de 10 MHz para tb (clk tiene frecuencia de 100 MHz)
-    /*always@(posedge clk) begin
-        if (count == 10-1) begin
-            count <= 0;
-            new_clk <= !new_clk;
-        end
-        else begin
-            count <= count + 1;
-        end
-    end*/
     
      // obtener bit de realimentación o tap
     assign lf = ( (lfsr_out[15] ^ lfsr_out[14]) 
