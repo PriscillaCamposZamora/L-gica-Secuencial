@@ -26,6 +26,17 @@ module seven_segment_display_controller(
             count <= count + 1;
         end
     end
+
+    // crear nuevo reloj a partir de clk con frecuencia de 10 MHz para testbench (clk tiene frecuencia de 100 MHz)
+    /*always@(posedge clk) begin
+        if (count == 10-1) begin
+            count <= 0;
+            new_clk <= !new_clk;
+        end
+        else begin
+            count <= count + 1;
+        end
+    end*/
    
     // actualizar el dígito que se va a iluminar del display con base en el nuevo reloj
     always@(posedge new_clk) begin
