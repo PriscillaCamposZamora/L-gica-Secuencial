@@ -12,13 +12,13 @@ module seven_segment_display_controller(
     );
     
     logic new_clk = 0;
-    logic [17:0] count = 16'd000000;
+    logic [14:0] count = 5'd00000;
     logic [1:0] digit = 2'b00;
     logic [3:0] displayed_digit = 4'b0000;
     
-    // crear nuevo reloj a partir de clk con frecuencia de 400 Hz (clk tiene frecuencia de 100 MHz)
+    // crear nuevo reloj a partir de clk con frecuencia de 400 Hz (clk tiene frecuencia de 10 MHz)
     always@(posedge clk) begin
-        if (count == 250000-1) begin
+        if (count == 25000-1) begin
             count <= 0;
             new_clk <= !new_clk;
         end

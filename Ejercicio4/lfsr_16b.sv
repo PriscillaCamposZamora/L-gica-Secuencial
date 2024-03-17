@@ -13,11 +13,11 @@ module lfsr_16b(
     );
     
     logic lf, new_clk = 0;
-    logic [28:0] count = 9'd0000000000;
+    logic [24:0] count = 8'd00000000;
     
-    // crear nuevo reloj a partir de clk con frecuencia de 0.5 Hz (clk tiene frecuencia de 100 MHz)
+    // crear nuevo reloj a partir de clk con frecuencia de 0.5 Hz (clk tiene frecuencia de 10 MHz)
     always@(posedge clk) begin
-        if (count == 200000000-1) begin
+        if (count == 20000000-1) begin
             count <= 0;
             new_clk <= !new_clk;
         end
