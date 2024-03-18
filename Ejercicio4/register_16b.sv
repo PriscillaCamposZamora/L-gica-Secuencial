@@ -5,20 +5,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module register_16b(
-    input logic clk,
-    input logic WE,
-    input logic [15:0] D,
-    output logic [15:0] Q
+    input logic clk, // señal de reloj (10 MHz)
+    input logic WE, // señal de habilitación de escritura
+    input logic [15:0] D, // señales para el dato de entrada al registro
+    output logic [15:0] Q// señales para el dato de salida del registro
     );
     
-    logic [15:0] register;
+    logic [15:0] register; // registro de 16 bits para cargar dato de entrada
     
     always@(posedge clk) begin
-        if (WE) begin
-            register <= D;
+        if (WE) begin // 
+            register <= D; // cargar dato de entrada en el registro
         end
     end
     
-    assign Q = register;
+    assign Q = register; // mostrar dato cargado en la salida del registro
     
 endmodule
