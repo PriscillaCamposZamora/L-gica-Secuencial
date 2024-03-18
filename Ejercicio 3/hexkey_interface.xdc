@@ -5,6 +5,10 @@
 set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { clk }];
 create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports { clk }];
 
+##Buttons
+
+set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { rst }];
+
 ## LEDs
 
 set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { LED[0] }];
@@ -31,11 +35,18 @@ set_property -dict { PACKAGE_PIN V11   IOSTANDARD LVCMOS33 } [get_ports { LED[15
 set_property -dict { PACKAGE_PIN C17   IOSTANDARD LVCMOS33 } [get_ports { bitcounter1 }];
 set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { bitcounter2 }];
 
+##Pmod Header JB
+
+set_property -dict { PACKAGE_PIN D14   IOSTANDARD LVCMOS33 } [get_ports { D }];
+set_property -dict { PACKAGE_PIN F16   IOSTANDARD LVCMOS33 } [get_ports { C }];
+set_property -dict { PACKAGE_PIN G16   IOSTANDARD LVCMOS33 } [get_ports { B }];
+set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { A }];
+
 ##Pmod Header JXADC
 
-set_property -dict { PACKAGE_PIN A14   IOSTANDARD LVDS     } [get_ports { bitkey1 }];
-set_property -dict { PACKAGE_PIN A13   IOSTANDARD LVDS     } [get_ports { bitkey2 }];
-set_property -dict { PACKAGE_PIN A16   IOSTANDARD LVDS     } [get_ports { presskey1 }];
-set_property -dict { PACKAGE_PIN A15   IOSTANDARD LVDS     } [get_ports { presskey2 }];
-set_property -dict { PACKAGE_PIN B17   IOSTANDARD LVDS     } [get_ports { presskey3 }];
-set_property -dict { PACKAGE_PIN B16   IOSTANDARD LVDS     } [get_ports { presskey4 }];
+set_property -dict { PACKAGE_PIN A14   IOSTANDARD LVCMOS33 } [get_ports { bitkey1 }];
+set_property -dict { PACKAGE_PIN A13   IOSTANDARD LVCMOS33 } [get_ports { bitkey2 }];
+set_property -dict { PACKAGE_PIN A16   IOSTANDARD LVCMOS33 } [get_ports { presskey1 }];
+set_property -dict { PACKAGE_PIN A15   IOSTANDARD LVCMOS33 } [get_ports { presskey2 }];
+set_property -dict { PACKAGE_PIN B17   IOSTANDARD LVCMOS33 } [get_ports { presskey3 }];
+set_property -dict { PACKAGE_PIN B16   IOSTANDARD LVCMOS33 } [get_ports { presskey4 }];

@@ -4,10 +4,10 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-//Flip Flop D para 
+//Flip Flop D
 module d_flipflop
 (
-    input logic D, clk, rst,
+    input logic clk, rst, D, EN,
     output logic Q
 );
 
@@ -15,7 +15,7 @@ module d_flipflop
     begin
         if(rst)
             Q <= 1'b0;
-        else 
+        else if (EN)
             Q <= D; 
     end 
 endmodule 
