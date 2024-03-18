@@ -19,8 +19,8 @@ twobit_counter dut
     //Señal de reloj
     initial
     begin
-        clk=0;
-        forever #5 clk=~clk;    
+        clk = 0;
+        forever #5 clk = ~clk;    
     end
 
     initial

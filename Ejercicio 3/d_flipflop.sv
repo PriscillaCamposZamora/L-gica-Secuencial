@@ -7,11 +7,11 @@
 //Flip Flop D para 
 module d_flipflop
 (
-    input D, clk, rst
-    output Q
+    input logic D, clk, rst,
+    output logic Q
 );
 
-    always @(posedge clk or posedge async_reset) 
+    always @(posedge clk or posedge rst) 
     begin
         if(rst)
             Q <= 1'b0;
