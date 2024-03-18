@@ -20,9 +20,18 @@ output logic dbsig, //debounced signal to logic analyzer
 output button_out1, //flip-flop1 signal to logic analyzer
 output button_out2 //flip-flop2 signal to logic analyzer
 );
-
-
-
+/*
+ clk_wiz_0 pll_clk
+   (
+    // Clock out ports
+    .CLK_OUT_10MHz(CLK_OUT_10MHz),     // output CLK_OUT_10MHz
+    // Status and control signals
+    .reset(reset), // input reset
+    .locked(locked),       // output locked
+   // Clock in ports
+    .CLK_in_100MHz(clk)      // input CLK_in_100MHz
+);
+*/
 
 logic button_ff1 = 0; //button flip-flop for synchronization. Initialize it to 0
 logic button_ff2 = 0; //button flip-flop for synchronization. Initialize it to 0
