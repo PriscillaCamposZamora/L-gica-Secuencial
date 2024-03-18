@@ -26,6 +26,7 @@ set_property -dict { PACKAGE_PIN U11   IOSTANDARD LVCMOS33 } [get_ports { WE }];
 ##Buttons
 
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { rst }];
+set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { reset_pll }];
 
 ## LEDs
 
